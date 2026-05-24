@@ -1389,7 +1389,7 @@ const ProductsSection = () => {
 
         <div className="cat-panel-head">
           <h3 className="cat-name">
-            {current.short} — {current.products.length} {current.products.length === 1 ? 'aplicación' : 'aplicaciones'} <span className="i" style={{color: current.color}}>{current.id === 'trabajo' ? 'disponibles' : current.id === 'admin' ? 'en desarrollo' : 'en camino'}</span>.
+            {current.short} — {current.id === 'trabajo' ? current.products.filter(p=>p.status==='live').length : current.products.length} {(current.id === 'trabajo' ? current.products.filter(p=>p.status==='live').length : current.products.length) === 1 ? 'aplicación' : 'aplicaciones'} <span className="i" style={{color: current.color}}>{current.id === 'trabajo' ? 'disponible' : current.id === 'admin' ? 'en desarrollo' : 'en camino'}</span>.
           </h3>
           <div className="cat-desc">{current.desc}</div>
         </div>
