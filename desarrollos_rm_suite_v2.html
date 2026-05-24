@@ -925,16 +925,20 @@
     .constellation { display: none; }
   }
 
-@media (max-width: 768px) {
+/* ===== MOBILE IMAGE FIX ===== */
+@media (max-width: 900px) {
   img { max-width: 100% !important; height: auto !important; }
-  .sc-img, .screenshot, [class*="screen"] img { 
-    max-width: 100% !important; 
-    border-radius: 8px !important;
-  }
-  .featured-visual img, .gallery img, .slides img {
-    max-width: 100% !important;
-    width: 100% !important;
-  }
+  .focus-vis { overflow: hidden; border-radius: 12px; }
+  .focus-vis img { width: 100% !important; max-width: 100% !important; height: auto !important; }
+  .featured-visual { overflow: hidden; }
+  .featured-visual img { width: 100% !important; max-width: 100% !important; height: auto !important; }
+  .gallery-shot { overflow: hidden; }
+  .gallery-shot img { width: 100% !important; max-width: 100% !important; height: auto !important; }
+  .theme-card { overflow: hidden; }
+  .theme-card img { width: 100% !important; max-width: 100% !important; height: auto !important; }
+  .hero-visual img { width: 100% !important; max-width: 100% !important; height: auto !important; }
+  .wrap { overflow-x: hidden; }
+  section { overflow-x: hidden; }
 }
 </style>
 </head>
