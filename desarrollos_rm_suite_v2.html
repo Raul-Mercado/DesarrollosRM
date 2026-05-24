@@ -1571,6 +1571,182 @@ const DownloadCounter = () => {
   );
 };
 
+
+// ===== POLÍTICA DE PRIVACIDAD =====
+const PrivacyPolicy = () => {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <>
+      <button onClick={() => setOpen(true)} style={{
+        background:'none', border:'none', color:'var(--brand-soft)',
+        cursor:'pointer', fontSize:12, textDecoration:'underline', padding:0
+      }}>Política de Privacidad</button>
+
+      {open && (
+        <div style={{
+          position:'fixed', inset:0, background:'rgba(0,0,0,0.82)',
+          zIndex:9999, display:'flex', alignItems:'center', justifyContent:'center',
+          padding:'20px'
+        }} onClick={() => setOpen(false)}>
+          <div onClick={e => e.stopPropagation()} style={{
+            background:'var(--surface)', borderRadius:16, padding:'40px',
+            maxWidth:680, width:'100%', maxHeight:'85vh', overflowY:'auto',
+            border:'1px solid var(--border)'
+          }}>
+            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:24}}>
+              <h2 style={{margin:0, fontSize:22, color:'var(--ink)'}}>🔒 Política de Privacidad</h2>
+              <button onClick={() => setOpen(false)} style={{
+                background:'none', border:'none', color:'var(--ink-2)',
+                fontSize:22, cursor:'pointer', padding:'4px 8px'
+              }}>✕</button>
+            </div>
+
+            {[
+              {t:'1. Responsable del tratamiento', c:'Raúl Roberto Mercado, CUIL 23-31929606-9, San Juan, Argentina. Contacto: raul.roberto.mercado@gmail.com — Tel: 2644980791.'},
+              {t:'2. Datos que recopilamos', c:'Este sitio web no recopila datos personales de los visitantes. El contador de descargas registra únicamente el número total de descargas, sin identificar a los usuarios. No utilizamos cookies de seguimiento ni formularios que requieran datos personales.'},
+              {t:'3. Datos del programa GÉNESIS PRO', c:'GÉNESIS PRO almacena todos los datos (jornadas, empleadores, registros) exclusivamente en el dispositivo local del usuario. Desarrollos RM no tiene acceso, ni almacena, ni transmite ningún dato personal generado por el programa.'},
+              {t:'4. Formulario de contacto', c:'Los mensajes enviados a través del formulario de contacto son procesados por Formspree (formspree.io) y remitidos al email del desarrollador. Los datos del mensaje no se almacenan en terceros más allá del tiempo necesario para la transmisión.'},
+              {t:'5. Registro de descargas', c:'El sitio utiliza la API pública Abacus para contar el número de descargas. Este servicio registra únicamente un contador numérico anónimo, sin almacenar IP, identificadores ni datos personales.'},
+              {t:'6. Derechos del usuario', c:'Tenés derecho a acceder, rectificar y suprimir tus datos. Para ejercer estos derechos o realizar cualquier consulta, contactanos en raul.roberto.mercado@gmail.com.'},
+              {t:'7. Marco legal', c:'Esta política se enmarca en la Ley N° 25.326 de Protección de Datos Personales de la República Argentina y sus normas complementarias.'},
+              {t:'8. Vigencia', c:'Esta política fue actualizada el 23 de mayo de 2026. Nos reservamos el derecho de modificarla notificando los cambios en este mismo sitio.'},
+            ].map(({t, c}) => (
+              <div key={t} style={{marginBottom:20}}>
+                <div style={{fontWeight:700, color:'var(--ink)', marginBottom:6, fontSize:14}}>{t}</div>
+                <div style={{color:'var(--ink-2)', fontSize:13, lineHeight:1.7}}>{c}</div>
+              </div>
+            ))}
+
+            <div style={{
+              marginTop:24, padding:'16px', borderRadius:8,
+              background:'rgba(45,124,230,0.08)', border:'1px solid rgba(45,124,230,0.2)',
+              fontSize:12, color:'var(--ink-3)', textAlign:'center'
+            }}>
+              Obra de software registrada ante la DNDA Argentina · EX-2026-51580433-APN-DNDA#MJ
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+// ===== FORMULARIO DE CONTACTO =====
+const ContactForm = () => {
+  const [open,    setOpen]    = React.useState(false);
+  const [status,  setStatus]  = React.useState('idle'); // idle | sending | ok | error
+  const [form,    setForm]    = React.useState({nombre:'', email:'', asunto:'', mensaje:''});
+
+  const handleChange = e => setForm(f => ({...f, [e.target.name]: e.target.value}));
+
+  const handleSubmit = async e => {
+    e.preventDefault();
+    setStatus('sending');
+    try {
+      const res = await fetch('https://formspree.io/f/xqejdkaq', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+        body: JSON.stringify({
+          nombre:  form.nombre,
+          email:   form.email,
+          asunto:  form.asunto,
+          mensaje: form.mensaje,
+          _subject: `[Desarrollos RM] ${form.asunto}`,
+        })
+      });
+      if (res.ok) { setStatus('ok'); setForm({nombre:'', email:'', asunto:'', mensaje:''}); }
+      else         { setStatus('error'); }
+    } catch { setStatus('error'); }
+  };
+
+  const inputStyle = {
+    width:'100%', padding:'12px 14px', borderRadius:8, fontSize:13,
+    background:'var(--bg)', border:'1px solid var(--border)',
+    color:'var(--ink)', outline:'none', fontFamily:'inherit',
+    boxSizing:'border-box', marginTop:6
+  };
+
+  return (
+    <>
+      <button onClick={() => { setOpen(true); setStatus('idle'); }} style={{
+        background:'none', border:'none', color:'var(--brand-soft)',
+        cursor:'pointer', fontSize:12, textDecoration:'underline', padding:0
+      }}>Contacto</button>
+
+      {open && (
+        <div style={{
+          position:'fixed', inset:0, background:'rgba(0,0,0,0.82)',
+          zIndex:9999, display:'flex', alignItems:'center', justifyContent:'center',
+          padding:'20px'
+        }} onClick={() => setOpen(false)}>
+          <div onClick={e => e.stopPropagation()} style={{
+            background:'var(--surface)', borderRadius:16, padding:'40px',
+            maxWidth:520, width:'100%', border:'1px solid var(--border)'
+          }}>
+            <div style={{display:'flex', justifyContent:'space-between', alignItems:'center', marginBottom:24}}>
+              <h2 style={{margin:0, fontSize:22, color:'var(--ink)'}}>✉️ Contacto</h2>
+              <button onClick={() => setOpen(false)} style={{
+                background:'none', border:'none', color:'var(--ink-2)',
+                fontSize:22, cursor:'pointer', padding:'4px 8px'
+              }}>✕</button>
+            </div>
+
+            {status === 'ok' ? (
+              <div style={{textAlign:'center', padding:'40px 0'}}>
+                <div style={{fontSize:48, marginBottom:16}}>✅</div>
+                <div style={{fontSize:18, fontWeight:700, color:'var(--ink)', marginBottom:8}}>¡Mensaje enviado!</div>
+                <div style={{color:'var(--ink-2)', fontSize:14}}>Te respondemos a la brevedad en <strong>{form.email || 'tu email'}</strong>.</div>
+                <button onClick={() => setOpen(false)} style={{
+                  marginTop:24, padding:'10px 28px', borderRadius:8,
+                  background:'var(--brand)', color:'#fff', border:'none',
+                  cursor:'pointer', fontWeight:600, fontSize:14
+                }}>Cerrar</button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                {[
+                  {label:'Tu nombre', name:'nombre', type:'text', placeholder:'Raúl Mercado', required:true},
+                  {label:'Tu email', name:'email', type:'email', placeholder:'tu@email.com', required:true},
+                  {label:'Asunto', name:'asunto', type:'text', placeholder:'Consulta sobre GÉNESIS PRO', required:true},
+                ].map(({label, name, type, placeholder, required}) => (
+                  <div key={name} style={{marginBottom:14}}>
+                    <label style={{fontSize:12, color:'var(--ink-2)', fontWeight:600, textTransform:'uppercase', letterSpacing:'0.08em'}}>{label}</label>
+                    <input type={type} name={name} placeholder={placeholder} required={required}
+                      value={form[name]} onChange={handleChange} style={inputStyle} />
+                  </div>
+                ))}
+                <div style={{marginBottom:20}}>
+                  <label style={{fontSize:12, color:'var(--ink-2)', fontWeight:600, textTransform:'uppercase', letterSpacing:'0.08em'}}>Mensaje</label>
+                  <textarea name="mensaje" placeholder="Escribí tu consulta, sugerencia o reporte..." required
+                    value={form.mensaje} onChange={handleChange} rows={5}
+                    style={{...inputStyle, resize:'vertical', minHeight:120}} />
+                </div>
+                {status === 'error' && (
+                  <div style={{color:'#e74c3c', fontSize:13, marginBottom:12}}>
+                    Error al enviar. Intentá de nuevo o escribí a raul.roberto.mercado@gmail.com
+                  </div>
+                )}
+                <button type="submit" disabled={status === 'sending'} style={{
+                  width:'100%', padding:'14px', borderRadius:8,
+                  background:status==='sending'?'var(--border)':'var(--brand)',
+                  color:'#fff', border:'none', cursor:status==='sending'?'not-allowed':'pointer',
+                  fontWeight:700, fontSize:15, fontFamily:'inherit',
+                  transition:'background 0.2s'
+                }}>
+                  {status === 'sending' ? 'Enviando…' : 'Enviar mensaje →'}
+                </button>
+                <div style={{marginTop:12, fontSize:11, color:'var(--ink-3)', textAlign:'center'}}>
+                  También podés escribirnos directamente a raul.roberto.mercado@gmail.com
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
 // Footer
 const Footer = () => (
   <footer>
@@ -1613,10 +1789,11 @@ const Footer = () => (
         ))}
       </div>
       <div className="footer-bottom">
-        <div>© 2026 · Desarrollos RM · San Juan, Argentina · Todos los derechos reservados · DNDA EX-2026-51580433-APN-DNDA#MJ</div>
+        <div>© 2026 · Desarrollos RM · San Juan, Argentina · DNDA EX-2026-51580433-APN-DNDA#MJ</div>
         <div className="legal">
-          <a href="#">Privacidad</a>
-          <a href="#">Términos</a>
+          <PrivacyPolicy/>
+          <ContactForm/>
+          <a href="mailto:raul.roberto.mercado@gmail.com" style={{color:"var(--brand-soft)", textDecoration:"none"}}>raul.roberto.mercado@gmail.com</a>
           <a href="#">Soporte</a>
         </div>
       </div>
