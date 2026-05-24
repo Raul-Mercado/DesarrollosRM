@@ -973,9 +973,26 @@ html, body { overflow-x: hidden !important; max-width: 100vw !important; }
 
   /* Footer */
   .footer-inner { grid-template-columns: 1fr !important; gap: 24px !important; }
-  .footer-bottom { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
-  .footer-bottom .legal { flex-direction: column !important; gap: 8px !important; }
-  .footer-bottom > div:first-child { font-size: 10px !important; line-height: 1.6 !important; }
+  .footer-bottom { 
+    flex-direction: column !important; 
+    align-items: flex-start !important; 
+    gap: 16px !important;
+    padding-top: 16px !important;
+  }
+  .footer-bottom > div:first-child { 
+    font-size: 12px !important; 
+    line-height: 1.8 !important;
+    max-width: 100% !important;
+    word-break: break-word !important;
+    font-family: inherit !important;
+    letter-spacing: 0 !important;
+    text-transform: none !important;
+  }
+  .footer-bottom .legal { 
+    flex-direction: row !important; 
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+  }
 
   /* Productos sin pipe */
   .prod-name { word-break: keep-all !important; white-space: nowrap; }
@@ -1438,7 +1455,7 @@ const Featured = () => (
           <div className="featured-actions">
             <a href="desarrollos_rm_genesis_pro.html" className="btn-primary">
               <Plat.windows style={{width:16,height:16}}/>
-              Abrir landing completa
+              Entrá acá y descubrí todo de GÉNESIS|PRO
             </a>
             <a href="#" style={{color:'var(--ink-2)', fontSize:13, fontWeight:600, textDecoration:'underline', textUnderlineOffset:4}}>
               Descargar v4.99 →
@@ -1861,11 +1878,11 @@ const Footer = () => (
         ))}
       </div>
       <div className="footer-bottom" style={{flexWrap:"wrap"}}>
-        <div>© 2026 · Desarrollos RM · San Juan, Argentina · DNDA EX-2026-51580433-APN-DNDA#MJ</div>
-        <div className="legal">
+        <div style={{fontSize:12, lineHeight:1.7}}>© 2026 · Desarrollos RM · San Juan, Argentina<br/>DNDA: EX-2026-51580433-APN-DNDA#MJ</div>
+        <div className="legal" style={{display:'flex', flexWrap:'wrap', gap:12, alignItems:'center'}}>
           <PrivacyPolicy/>
           <ContactForm/>
-          <a href="mailto:raul.roberto.mercado@gmail.com" style={{color:"var(--brand-soft)", textDecoration:"none"}}>raul.roberto.mercado@gmail.com</a>
+          <a href="mailto:raul.roberto.mercado@gmail.com" style={{color:"var(--brand-soft)", textDecoration:"none", fontSize:12}}>raul.roberto.mercado@gmail.com</a>
           <a href="#">Soporte</a>
         </div>
       </div>
