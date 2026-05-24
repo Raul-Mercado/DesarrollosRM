@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TE59CL45EV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TE59CL45EV');
+</script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>SUITE RM — Una suite, todo tu trabajo · Desarrollos RM</title>
@@ -916,6 +924,18 @@
     .stats-inner, .prod-grid, .footer-inner { grid-template-columns: 1fr; }
     .constellation { display: none; }
   }
+
+@media (max-width: 768px) {
+  img { max-width: 100% !important; height: auto !important; }
+  .sc-img, .screenshot, [class*="screen"] img { 
+    max-width: 100% !important; 
+    border-radius: 8px !important;
+  }
+  .featured-visual img, .gallery img, .slides img {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+}
 </style>
 </head>
 <body>
@@ -1349,7 +1369,7 @@ const Featured = () => (
       </div>
       <div className="featured-card reveal">
         <div>
-          <div className="eyebrow">PRODUCTO INSIGNIA · VERSIÓN 4.67</div>
+          <div className="eyebrow">PRODUCTO INSIGNIA · VERSIÓN 4.99</div>
           <h2>GÉNESIS<span style={{color:'var(--brand-soft)', fontWeight:500, margin:'0 4px'}}>|</span>PRO</h2>
           <p>
             El contador de horas de trabajo para personas que cobran por hora. Cronómetro, carga
