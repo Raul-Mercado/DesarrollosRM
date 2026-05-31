@@ -851,9 +851,44 @@
     }
     .focus-row.reverse > .focus-text, .focus-row.reverse > .focus-vis { order: initial; }
     .section-head-row { flex-direction: column; align-items: flex-start; }
+    .section { padding: 80px 0; }
+    .gallery-section { padding: 80px 0; }
   }
   @media (max-width: 620px) {
     .feat-grid, .focus-row, .focus-row.reverse, .export-grid, .workflow-grid, .download-card, .footer-inner { grid-template-columns: 1fr; }
+
+    /* Padding general más chico en celular */
+    .wrap { padding: 0 18px; }
+    .section { padding: 56px 0; }
+    .gallery-section { padding: 56px 0; }
+
+    /* Nav más compacto */
+    .nav-inner { height: 64px; }
+
+    /* Títulos: bajar el mínimo del clamp para que no desborden */
+    .hero-h1 { font-size: clamp(32px, 9vw, 48px); line-height: 1.05; }
+    .hero { padding: 64px 0 40px; }
+    .hero-lead { font-size: 15px; }
+    .section-title { font-size: clamp(26px, 7vw, 40px) !important; }
+
+    /* CTAs en columna y a todo el ancho */
+    .hero-ctas { flex-direction: column; align-items: stretch; }
+    .hero-ctas a { justify-content: center; }
+    .download-actions { flex-direction: column; align-items: stretch; }
+    .download-actions a { justify-content: center; text-align: center; }
+
+    /* Imágenes: que nunca se corten ni desborden */
+    .hero-shot, .gallery-shot, .focus-vis, .feat-card { max-width: 100%; }
+    .hero-shot img, .gallery-shot img, .focus-vis img { width: 100%; height: auto; object-fit: contain; }
+
+    /* Galería: pestañas que envuelven en vez de cortarse */
+    .gallery-tabs { flex-wrap: wrap; gap: 8px; }
+
+    /* Stats: 2 columnas en vez de 4 apretadas */
+    .stats-inner { grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    /* Reducir títulos grandes de secciones especiales */
+    .download h2, .cta h2 { font-size: clamp(28px, 8vw, 44px) !important; }
   }
 
   /* light mode (Tweaks) */
