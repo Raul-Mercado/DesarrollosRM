@@ -1356,7 +1356,18 @@ const ProductsSection = () => {
 
         <div className="cat-panel-head">
           <h3 className="cat-name">
-            {current.short} — {current.products.length} {current.products.length === 1 ? 'aplicación' : 'aplicaciones'} <span className="i" style={{color: current.color}}>{current.id === 'trabajo' ? 'disponibles' : current.id === 'admin' ? 'en desarrollo' : 'en camino'}</span>.
+            {(() => {
+              const total = current.products.length;
+              const liveCount = current.products.filter(p => p.status === 'live').length;
+              const word = total === 1 ? 'aplicación' : 'aplicaciones';
+              let tail;
+              if (liveCount > 0) {
+                tail = liveCount === 1 ? '1 ya disponible' : `${liveCount} ya disponibles`;
+              } else {
+                tail = 'en desarrollo';
+              }
+              return (<>{current.short} — {total} {word} <span className="i" style={{color: current.color}}>{tail}</span>.</>);
+            })()}
           </h3>
           <div className="cat-desc">{current.desc}</div>
         </div>
