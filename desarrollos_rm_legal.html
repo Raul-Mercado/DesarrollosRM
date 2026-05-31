@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Legal — Privacidad, Términos y Licencia · Desarrollos RM</title>
+<meta name="description" content="Política de privacidad, términos de uso y licencia de las aplicaciones de Desarrollos RM. Software que respeta tus datos: todo se guarda en tu propio equipo." />
+<meta name="author" content="Desarrollos RM" />
+<meta name="robots" content="index, follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0d1421;
+    --bg-2: #0f1a2e;
+    --surface: #16243d;
+    --surface-2: #1d2f4d;
+    --line: rgba(255,255,255,0.08);
+    --line-strong: rgba(255,255,255,0.16);
+    --ink: #f6f9ff;
+    --ink-2: #c9d5e8;
+    --ink-3: #8094b4;
+    --brand: #2D7CE6;
+    --brand-2: #4a93f0;
+    --brand-deep: #1e4d7b;
+    --brand-soft: #6da7f3;
+    --ok: #22c47a;
+  }
+  *,*::before,*::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Manrope', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--ink-2);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    line-height: 1.65;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 80px 80px;
+    pointer-events: none; z-index: 0;
+    mask-image: radial-gradient(ellipse at top, black 30%, transparent 80%);
+  }
+  a { color: var(--brand-soft); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 28px; position: relative; z-index: 1; }
+
+  /* NAV */
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(13, 20, 33, 0.78);
+    backdrop-filter: blur(18px) saturate(160%);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px; max-width: 860px; margin: 0 auto; padding: 0 28px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand-mark {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, var(--brand) 0%, var(--brand-deep) 100%);
+    border-radius: 10px;
+    display: grid; place-items: center;
+    color: white; font-weight: 800; font-size: 13px; letter-spacing: 0.04em;
+    box-shadow: 0 1px 0 rgba(255,255,255,0.15) inset, 0 8px 24px rgba(45,124,230,0.35);
+  }
+  .brand-text { font-weight: 800; font-size: 15px; letter-spacing: 0.05em; color: var(--ink); line-height: 1; }
+  .brand-text .small { color: var(--brand-soft); }
+  .brand-sub { font-family: 'JetBrains Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-3); margin-top: 3px; }
+  .nav-back { font-size: 13px; font-weight: 600; color: var(--ink-2); }
+  .nav-back:hover { color: var(--ink); text-decoration: none; }
+
+  /* HEADER */
+  header.page-head { padding: 72px 0 28px; text-align: center; }
+  .page-head .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--brand-soft); margin-bottom: 18px;
+  }
+  .page-head h1 {
+    font-weight: 800; font-size: clamp(36px, 6vw, 56px);
+    line-height: 1.02; letter-spacing: -0.03em;
+    color: var(--ink); margin: 0 0 16px;
+  }
+  .page-head h1 .i { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; color: var(--brand-soft); }
+  .page-head p { font-size: 16px; color: var(--ink-2); max-width: 560px; margin: 0 auto; }
+  .updated { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--ink-3); margin-top: 18px; }
+
+  /* TOC */
+  .toc {
+    display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+    margin: 36px 0 8px;
+  }
+  .toc a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: 0.08em;
+    padding: 9px 16px; border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    background: rgba(255,255,255,0.02);
+    color: var(--ink-2);
+  }
+  .toc a:hover { border-color: var(--brand); color: var(--ink); text-decoration: none; }
+
+  /* SECTIONS */
+  section.legal {
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg-2) 100%);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 40px 40px 44px;
+    margin: 28px 0;
+    scroll-margin-top: 90px;
+  }
+  section.legal > .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--brand-soft); margin-bottom: 8px;
+  }
+  section.legal > h2 {
+    font-weight: 800; font-size: 30px; letter-spacing: -0.02em;
+    color: var(--ink); margin: 0 0 6px;
+  }
+  section.legal .lead { font-size: 15px; color: var(--ink-2); margin: 0 0 18px; }
+  section.legal h3 {
+    font-size: 16px; font-weight: 700; color: var(--ink);
+    margin: 26px 0 8px; letter-spacing: -0.01em;
+  }
+  section.legal p { font-size: 14.5px; color: var(--ink-2); margin: 0 0 12px; }
+  section.legal ul { margin: 0 0 12px; padding-left: 20px; }
+  section.legal li { font-size: 14.5px; color: var(--ink-2); margin-bottom: 7px; }
+  section.legal strong { color: var(--ink); }
+  .pill-ok {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ok); background: rgba(34,196,122,0.12);
+    border: 1px solid rgba(34,196,122,0.3); border-radius: 6px;
+    padding: 5px 11px; margin-bottom: 18px;
+  }
+  .pill-ok .d { width: 7px; height: 7px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 8px var(--ok); }
+
+  .contact-box {
+    background: rgba(45,124,230,0.08);
+    border: 1px solid rgba(45,124,230,0.25);
+    border-radius: 12px; padding: 20px 22px; margin-top: 8px;
+  }
+  .contact-box .k { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); }
+  .contact-box .v { font-size: 15px; font-weight: 600; color: var(--ink); margin-top: 2px; }
+
+  /* Aviso importante (disclaimer destacado) */
+  .notice {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: rgba(255,184,77,0.08);
+    border: 1px solid rgba(255,184,77,0.32);
+    border-radius: 14px;
+    padding: 22px 24px;
+    margin: 32px 0 8px;
+  }
+  .notice .ico {
+    flex-shrink: 0;
+    width: 34px; height: 34px; border-radius: 9px;
+    background: rgba(255,184,77,0.16);
+    border: 1px solid rgba(255,184,77,0.4);
+    display: grid; place-items: center;
+    color: #ffb84d; font-weight: 800; font-size: 18px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .notice .ntitle { font-weight: 800; font-size: 15px; color: var(--ink); margin: 0 0 4px; letter-spacing: -0.01em; }
+  .notice p { font-size: 14px; color: var(--ink-2); margin: 0; }
+  .legalese { font-size: 12.5px; color: var(--ink-3); font-style: italic; margin-top: 18px; line-height: 1.55; }
+  .clause-ref { font-family: 'JetBrains Mono', monospace; color: var(--brand-soft); font-style: normal; }
+
+  /* FOOTER */
+  footer { border-top: 1px solid var(--line); padding: 40px 0; margin-top: 40px; background: var(--bg-2); }
+  .footer-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-inner .copy { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; color: var(--ink-3); }
+  .footer-inner .links { display: flex; gap: 18px; }
+  .footer-inner .links a { font-size: 13px; color: var(--ink-2); }
+
+  @media (max-width: 600px) {
+    section.legal { padding: 28px 22px 32px; }
+    .nav-inner, .wrap { padding: 0 18px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="desarrollos_rm_suite_v2.html" class="brand">
+      <div class="brand-mark">RM</div>
+      <div>
+        <div class="brand-text">DESARROLLOS <span class="small">RM</span></div>
+        <div class="brand-sub">Información legal</div>
+      </div>
+    </a>
+    <a href="desarrollos_rm_suite_v2.html" class="nav-back">← Volver al sitio</a>
+  </div>
+</nav>
+
+<header class="page-head">
+  <div class="wrap">
+    <div class="eyebrow">Información legal</div>
+    <h1>Marco legal, <span class="i">claro y completo</span>.</h1>
+    <p>Este documento regula el uso de GÉNESIS|PRO y demás aplicaciones de Desarrollos RM, el tratamiento de los datos del usuario y las condiciones de la licencia. Su lectura se recomienda con anterioridad a la instalación y uso del software.</p>
+    <div class="updated">Última actualización: mayo de 2026 · Versión 1.0</div>
+    <div class="toc">
+      <a href="#privacidad">Política de privacidad</a>
+      <a href="#terminos">Términos y condiciones</a>
+      <a href="#licencia">Licencia de uso</a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="notice">
+    <div class="ico">!</div>
+    <div>
+      <p class="ntitle">Aviso importante sobre los cálculos y documentos</p>
+      <p>GÉNESIS|PRO es una <strong>herramienta de gestión y cálculo personal</strong>. Los importes, horas extra, recargos y reportes que genera son <strong>estimaciones orientativas</strong> y no constituyen asesoramiento contable, laboral, impositivo ni legal, ni reemplazan a un profesional habilitado. Los archivos exportados (PDF, Excel, TXT) son documentos de referencia personal: <strong>no son comprobantes oficiales</strong> y pueden ser verificados o validados por un profesional antes de su presentación ante terceros, empleadores u organismos. El usuario es el responsable final del control de la información obtenida.</p>
+    </div>
+  </div>
+
+  <!-- ===================== PRIVACIDAD ===================== -->
+  <section class="legal" id="privacidad">
+    <div class="num">[ 01 ] Privacidad</div>
+    <h2>Política de privacidad</h2>
+    <p class="lead">Esta Política describe el tratamiento de los datos en el uso de las aplicaciones de Desarrollos RM, en cumplimiento de la Ley N.º 25.326 de Protección de los Datos Personales de la República Argentina.</p>
+
+    <div class="pill-ok"><span class="d"></span> Las aplicaciones no recolectan datos personales</div>
+
+    <h3>1. Responsable</h3>
+    <p>El responsable es <strong>Desarrollos RM</strong> (San Juan, República Argentina). Correo de contacto: <a href="mailto:contacto@desarrollosrm.com.ar">contacto@desarrollosrm.com.ar</a>.</p>
+
+    <h3>2. Almacenamiento estrictamente local</h3>
+    <p>La totalidad de la información ingresada por el usuario (registros de horas, jornadas, importes, configuraciones y reportes) se almacena <strong>exclusivamente en el dispositivo del usuario</strong>. El software no transmite datos a servidores externos ni a terceros, y el responsable no posee acceso ni copia de dicha información.</p>
+
+    <h3>3. Uso del DNI y CUIL</h3>
+    <p>En caso de que el usuario los ingrese, el DNI y el CUIL se utilizan únicamente como identificador interno y como contraseña de los reportes exportados. No se transmiten ni se comparten.</p>
+
+    <h3>4. Sin registro ni conexión</h3>
+    <p>El uso no requiere cuenta, registro ni conexión a internet. No se recopilan datos de navegación, ubicación ni cookies de seguimiento.</p>
+
+    <h3>5. Reporte de errores opcional</h3>
+    <p>El programa incluye una función opcional de reporte de errores técnicos. Si el usuario la utiliza, se abre su cliente de correo con un mensaje que contiene únicamente información técnica (versión del programa y registro de errores), nunca datos personales ni registros de horas. El envío siempre requiere una acción explícita del usuario.</p>
+
+    <h3>6. Derechos del titular</h3>
+    <p>Conforme a los artículos 14 y 16 de la Ley N.º 25.326, el usuario puede solicitar el acceso, rectificación, actualización y supresión de los datos que pudiera haber suministrado al contactarse, escribiendo a <a href="mailto:contacto@desarrollosrm.com.ar">contacto@desarrollosrm.com.ar</a>. La Agencia de Acceso a la Información Pública es el órgano de control de dicha ley.</p>
+
+    <h3>7. Responsabilidad del usuario</h3>
+    <p>El usuario es el único responsable de la seguridad, el respaldo y la confidencialidad de los datos almacenados en su dispositivo. Se recomienda mantener copias de seguridad periódicas.</p>
+  </section>
+
+  <!-- ===================== TÉRMINOS ===================== -->
+  <section class="legal" id="terminos">
+    <div class="num">[ 02 ] Términos</div>
+    <h2>Términos y condiciones de uso</h2>
+    <p class="lead">Estos Términos regulan la relación entre Desarrollos RM ("el Desarrollador") y toda persona que descargue, instale o utilice sus aplicaciones ("el Usuario"). La instalación o el uso del software implican su aceptación plena.</p>
+
+    <h3>1. Naturaleza del software y ausencia de garantías</h3>
+    <p>GÉNESIS|PRO es una herramienta de gestión personal de horas laborales, de uso individual, provista "tal cual es" ("as is"), sin garantías de ningún tipo, expresas o implícitas, incluyendo comerciabilidad, adecuación a un fin particular, exactitud o vigencia de la información. No constituye un sistema de liquidación de sueldos oficial, ni asesoramiento contable, impositivo, previsional o legal, ni reemplaza a ningún profesional habilitado. El Usuario asume los riesgos derivados de su uso.</p>
+
+    <h3>2. Documentos exportados</h3>
+    <p>Los archivos generados (PDF, Excel, TXT) son documentos de referencia personal y <strong>no tienen carácter de instrumento público ni privado reconocido legalmente</strong>. Pueden ser modificados o alterados por terceros mediante herramientas de edición; el Usuario conoce esta limitación y asume plena responsabilidad por su uso, presentación y custodia. Se recomienda no presentarlos como comprobantes oficiales sin la validación de un profesional habilitado.</p>
+
+    <h3>3. Cálculos laborales y fiscales</h3>
+    <p>Los cálculos de horas extra, recargos por feriados y domingos se basan en criterios generales de la Ley de Contrato de Trabajo vigentes al momento del desarrollo, y constituyen estimaciones orientativas que pueden no reflejar cada convenio colectivo o situación particular. Los datos de Monotributo corresponden a valores publicados por ARCA (ex AFIP); el Usuario debe verificar los valores vigentes en <a href="https://www.arca.gob.ar" target="_blank" rel="noopener noreferrer">www.arca.gob.ar</a> antes de tomar decisiones fiscales.</p>
+
+    <h3>4. Renuncia de responsabilidad</h3>
+    <p>En la máxima medida permitida por la legislación aplicable, el Desarrollador renuncia a toda responsabilidad por cualquier daño, directo o indirecto, derivado del uso o de la imposibilidad de uso del programa, incluyendo: pérdida de datos por falla del dispositivo o error del usuario; decisiones tomadas sobre la base de los cálculos o reportes; uso indebido del software o de los archivos generados; desactualización de tablas fiscales o laborales; e incompatibilidad con convenios o situaciones laborales particulares.</p>
+    <p>Si la legislación aplicable no permite la exclusión total de responsabilidad, esta quedará limitada al mínimo permitido por dicha legislación. Esta cláusula no alcanza los daños por dolo o culpa grave del Desarrollador, ni los derechos irrenunciables del Usuario en su carácter de consumidor conforme a la Ley N.º 24.240.</p>
+
+    <h3>5. Mal uso del programa</h3>
+    <p>Se considera mal uso, entre otros: registrar información falsa o fraudulenta para generar documentación engañosa; utilizar los reportes para cometer fraude laboral, fiscal o previsional; o presentar los documentos exportados como si tuvieran validez oficial cuando carecen de ella. El Usuario es el único responsable del uso que haga del programa y de la información que genere.</p>
+
+    <h3>6. Indemnización</h3>
+    <p>El Usuario se compromete a mantener indemne al Desarrollador frente a cualquier reclamo, demanda, pérdida o gasto (incluidos honorarios legales razonables) que surja del uso del programa, de la violación de estos Términos o de la presentación de documentos generados por el software ante terceros u organismos.</p>
+
+    <h3>7. Propiedad intelectual</h3>
+    <p>GÉNESIS|PRO, los nombres de las aplicaciones, logotipos, diseños y código fuente son propiedad exclusiva del Desarrollador, protegidos por la Ley N.º 11.723 de Propiedad Intelectual. Queda prohibido, sin autorización escrita: copiar o distribuir el código; modificar, descompilar o realizar ingeniería inversa; vender, sublicenciar o transferir el programa; o suprimir los avisos de propiedad. El incumplimiento puede dar lugar a acciones civiles y/o penales.</p>
+
+    <h3>8. Fuerza mayor</h3>
+    <p>El Desarrollador no será responsable por fallas, interrupciones o pérdidas derivadas de causas fuera de su control razonable, tales como fallas de hardware o software del equipo del Usuario, cortes de energía, desastres naturales, actos maliciosos de terceros (virus, ransomware) o cambios legislativos, conforme al artículo 1730 y concordantes del Código Civil y Comercial de la Nación.</p>
+
+    <h3>9. Menores de edad</h3>
+    <p>El software está destinado a personas mayores de 18 años con plena capacidad legal. Si fuera utilizado por un menor, la aceptación de estos Términos y toda responsabilidad recaerá en su padre, madre o tutor legal.</p>
+
+    <h3>10. Divisibilidad</h3>
+    <p>Si alguna disposición de estos Términos fuera declarada inválida o inaplicable por autoridad competente, será modificada en la medida mínima necesaria para hacerla válida, o eliminada si ello no fuera posible, permaneciendo el resto en plena vigencia.</p>
+
+    <h3>11. Modificaciones</h3>
+    <p>El Desarrollador podrá actualizar las aplicaciones, sus funciones y estos Términos. La versión vigente estará siempre publicada en esta página y dentro del programa. El uso continuado tras una modificación implica su aceptación.</p>
+
+    <h3>12. Ley aplicable y jurisdicción</h3>
+    <p>Estos Términos se rigen por las leyes de la República Argentina. Toda controversia será sometida a los tribunales ordinarios de la ciudad de San Juan, Provincia de San Juan, sin perjuicio de la jurisdicción que pudiera corresponder de manera irrenunciable al Usuario como consumidor.</p>
+  </section>
+
+  <!-- ===================== LICENCIA ===================== -->
+  <section class="legal" id="licencia">
+    <div class="num">[ 03 ] Licencia</div>
+    <h2>Licencia de uso de software</h2>
+    <p class="lead">La presente Licencia otorga al Usuario un derecho de uso personal, gratuito, no exclusivo e intransferible sobre las aplicaciones de Desarrollos RM, sujeto a las condiciones que se detallan.</p>
+
+    <h3>Usos permitidos</h3>
+    <ul>
+      <li>Descargar e instalar las aplicaciones en los equipos del Usuario, sin límite de dispositivos de su titularidad.</li>
+      <li>Utilizar el software de manera ilimitada en el tiempo, conforme a su finalidad personal.</li>
+      <li>Generar, almacenar y emplear los reportes producidos para uso propio.</li>
+      <li>Recomendar la aplicación y difundir el enlace oficial de descarga.</li>
+    </ul>
+
+    <h3>Usos prohibidos</h3>
+    <ul>
+      <li>Comercializar, vender, alquilar, sublicenciar o redistribuir el software, total o parcialmente.</li>
+      <li>Modificar, adaptar, descompilar o realizar ingeniería inversa sobre el programa o su código.</li>
+      <li>Suprimir, ocultar o alterar marcas, créditos, leyendas de titularidad o avisos legales.</li>
+      <li>Emplear la denominación o los signos distintivos de Desarrollos RM sin autorización escrita.</li>
+      <li>Utilizar el programa con fines comerciales distintos al uso personal, sin acuerdo previo.</li>
+    </ul>
+
+    <h3>Donaciones voluntarias</h3>
+    <p>GÉNESIS|PRO es de distribución gratuita. El Usuario puede realizar donaciones voluntarias como apoyo al proyecto, sin que ello genere derecho adicional, obligación contractual ni soporte prioritario. Las donaciones son actos de liberalidad, voluntarios y no reembolsables.</p>
+
+    <h3>Titularidad y reserva de derechos</h3>
+    <p>El software es propiedad exclusiva de <strong>Desarrollos RM</strong>. Esta Licencia confiere únicamente un derecho de uso y no transfiere la titularidad del programa ni de su código. Todos los derechos no expresamente concedidos quedan reservados.</p>
+
+    <div class="contact-box">
+      <div class="k">Consultas sobre licencias o uso comercial</div>
+      <div class="v"><a href="mailto:contacto@desarrollosrm.com.ar">contacto@desarrollosrm.com.ar</a></div>
+    </div>
+
+    <p class="legalese">El documento legalmente vinculante es el Acuerdo de Licencia de Usuario Final que se acepta al instalar el programa. Esta página reproduce sus puntos principales con fines informativos y de transparencia, y no constituye asesoramiento jurídico. Para una validación legal definitiva se recomienda la intervención de un profesional del derecho matriculado.</p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap footer-inner">
+    <div class="copy">© 2026 · Desarrollos RM · San Juan, Argentina</div>
+    <div class="links">
+      <a href="desarrollos_rm_suite_v2.html">Suite RM</a>
+      <a href="desarrollos_rm_genesis_pro.html">Génesis|Pro</a>
+      <a href="mailto:contacto@desarrollosrm.com.ar">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
