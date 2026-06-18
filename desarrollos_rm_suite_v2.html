@@ -1450,7 +1450,7 @@ const Featured = ({ version }) => (
           <div className="featured-meta">
             <div className="row"><div className="k">Versión</div><div className="v">v{version}</div></div>
             <div className="row"><div className="k">Categoría</div><div className="v">Trabajo y productividad</div></div>
-            <div className="row"><div className="k">Plataforma actual</div><div className="v">Windows 10 / 11</div></div>
+            <div className="row"><div className="k">Plataforma actual</div><div className="v">Windows 10 / 11 · Android</div></div>
             <div className="row"><div className="k">Precio</div><div className="v">Gratuito · sin nube obligada</div></div>
           </div>
           <div className="featured-actions">
@@ -1460,6 +1460,9 @@ const Featured = ({ version }) => (
             </a>
             <a href={`https://github.com/${GITHUB_REPO}/releases/latest/download/GenesisProSetup_v${version}.exe`} style={{color:'var(--ink-2)', fontSize:13, fontWeight:600, textDecoration:'underline', textUnderlineOffset:4}}>
               Descargar v{version} →
+            </a>
+            <a href="desarrollos_rm_privacidad_android.html" style={{color:'var(--ink-2)', fontSize:13, fontWeight:600, textDecoration:'underline', textUnderlineOffset:4}}>
+              Privacidad (Android) →
             </a>
           </div>
         </div>
@@ -1622,6 +1625,7 @@ const Footer = () => (
         <div>© 2026 · Desarrollos RM · Todos los derechos reservados</div>
         <div className="legal">
           <a href="desarrollos_rm_legal.html#privacidad">Privacidad</a>
+          <a href="desarrollos_rm_privacidad_android.html">Privacidad Android</a>
           <a href="desarrollos_rm_legal.html#terminos">Términos</a>
           <a href="mailto:contacto@desarrollosrm.com.ar">Soporte</a>
         </div>
