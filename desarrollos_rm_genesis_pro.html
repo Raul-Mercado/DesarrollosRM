@@ -768,6 +768,20 @@
   .btn-download:hover { transform: translateY(-1px); box-shadow: 0 18px 36px rgba(0,0,0,0.4); }
   .btn-download .v { font-family: 'JetBrains Mono', monospace; font-size: 11px; opacity: 0.6; font-weight: 500; }
 
+  /* Botón Android — insignia estilo Google Play */
+  .btn-android {
+    display: inline-flex; align-items: center; gap: 12px;
+    background: transparent; color: var(--ink);
+    padding: 13px 22px;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 10px;
+    transition: all 0.18s ease;
+  }
+  .btn-android:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.06); transform: translateY(-1px); }
+  .btn-android .ba-txt { display: flex; flex-direction: column; line-height: 1.15; text-align: left; }
+  .btn-android .ba-small { font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.7; }
+  .btn-android .ba-big { font-size: 16px; font-weight: 700; }
+
   /* Sello VirusTotal */
   .vt-badge {
     display: inline-flex; align-items: center; gap: 10px;
@@ -1587,6 +1601,7 @@ const LogoMark = ({ size = 36 }) => (
 const I = {
   download: (p)=> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...p}><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 17v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>,
   windows: (p)=> <svg viewBox="0 0 24 24" fill="currentColor" {...p}><path d="M3 5.5L10.5 4.5v7.5H3V5.5zM11.5 4.4L21 3v9h-9.5V4.4zM3 12.5h7.5V20L3 18.5v-6zM11.5 12.5H21V21l-9.5-1.4v-7.1z"/></svg>,
+  android: (p)=> <svg viewBox="0 0 24 24" fill="currentColor" {...p}><path d="M6 9v7a1 1 0 001 1h1v3a1 1 0 002 0v-3h4v3a1 1 0 002 0v-3h1a1 1 0 001-1V9H6zM4.5 9A1.5 1.5 0 003 10.5v4a1.5 1.5 0 003 0v-4A1.5 1.5 0 004.5 9zm15 0A1.5 1.5 0 0018 10.5v4a1.5 1.5 0 003 0v-4A1.5 1.5 0 0019.5 9zM15.8 3.2l1-1.5a.3.3 0 00-.5-.35l-1.1 1.6A6.9 6.9 0 0012 2.5c-.9 0-1.6.15-2.2.45L8.7 1.35a.3.3 0 00-.5.35l1 1.5A5.8 5.8 0 006 8h12a5.8 5.8 0 00-2.2-4.8zM9.5 6.2a.7.7 0 110-1.4.7.7 0 010 1.4zm5 0a.7.7 0 110-1.4.7.7 0 010 1.4z"/></svg>,
   arrow: (p)=> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" {...p}><path d="M5 12h14m-6-6l6 6-6 6"/></svg>,
   play: (p)=> <svg viewBox="0 0 24 24" fill="currentColor" {...p}><path d="M6 4l14 8-14 8V4z"/></svg>,
   doc: (p)=> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" {...p}><path d="M6 3h9l5 5v13a1 1 0 01-1 1H6a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M15 3v5h5"/><path d="M8 13h8M8 17h6"/></svg>,
@@ -2159,6 +2174,17 @@ const Download = ({ version }) => (
               Descargar para Windows
               <span className="v">·  v{version} · EXE</span>
             </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=com.desarrollosrm.genesispro"
+              className="btn-android"
+              target="_blank" rel="noopener noreferrer"
+            >
+              <I.android style={{width:20,height:20}}/>
+              <span className="ba-txt">
+                <span className="ba-small">Disponible en</span>
+                <span className="ba-big">Google Play</span>
+              </span>
+            </a>
             <a href={`https://github.com/${GITHUB_REPO}/releases`} target="_blank" rel="noopener noreferrer" style={{color:'rgba(255,255,255,.7)', fontSize:13, fontWeight:600, textDecoration:'underline', textUnderlineOffset:4}}>
               Ver historial de versiones →
             </a>
@@ -2198,6 +2224,7 @@ const Download = ({ version }) => (
         <div className="sys-req">
           <div className="title">Requisitos</div>
           <div className="row"><span className="k">Sistema operativo</span><span className="v">Windows 10 / 11</span></div>
+          <div className="row"><span className="k">También en</span><span className="v">Android (Google Play)</span></div>
           <div className="row"><span className="k">Procesador</span><span className="v">x64 · 1 GHz+</span></div>
           <div className="row"><span className="k">Memoria RAM</span><span className="v">512 MB</span></div>
           <div className="row"><span className="k">Espacio en disco</span><span className="v">80 MB</span></div>
